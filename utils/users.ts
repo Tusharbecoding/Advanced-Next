@@ -8,8 +8,6 @@ export const getCurrentUser = async () => {
   const token = cookies().get(COOKIE_NAME)
   if (!token) redirect('/signin')
 
-  const user = await getUserFromToken(token)
+  const user = getUserFromToken(token)
   if (!user) redirect('/signin')
-
-  return user
 }
